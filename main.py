@@ -18,7 +18,6 @@ class dino_handler:
     Sets password_type depending on whether simple is True or False
     '''
     def update_password_type(self):
-        global password_type
         if self.simple:
             password_type.set("Simple Password")
         else:
@@ -29,7 +28,6 @@ class dino_handler:
     The password is then automatically copied to the users clipboard.
     '''
     def get_simple_password(self):
-        global password
         request= requests.get("http://www.dinopass.com/password/simple")
         retrieved_password = request.text.capitalize() + '!'
         password.set(retrieved_password)
@@ -42,7 +40,6 @@ class dino_handler:
     Gets a strong password using the dinopass API, the password is then automatically copied to the users clipboard.
     '''
     def get_strong_password(self):
-        global password
         request = requests.get("http://www.dinopass.com/password/strong")
         retrieved_password = request.text
         password.set(retrieved_password)
